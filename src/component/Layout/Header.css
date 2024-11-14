@@ -1,0 +1,54 @@
+/* 아이디 선택자 사용 */
+#header {
+    display: flex;
+    align-items: center;  /* 세로로 가운데 정렬 */
+    justify-content: space-between;  /* 항목들이 양끝으로 배치되게 */
+    padding: 10px 20px;
+    background-color: #f8f8f8;
+    border-bottom: 2px solid #ddd;
+  }
+  
+  #site-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #0056b3;
+    margin-left: 15px;
+  }
+  
+  #logo {
+    text-decoration: none;  /* 링크 기본 스타일 제거 */
+  }
+  /* 학교 로고 버튼 스타일 */
+.logo-button {
+  background-color: transparent;
+  color: #333;
+  border: 2px solid #333;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.logo-button:hover {
+  background-color: #333;
+  color: white;
+}
+
+/* 로그인 버튼 스타일 */
+.login-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #0056b3;
+}
+
+  

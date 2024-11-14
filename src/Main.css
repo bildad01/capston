@@ -1,0 +1,68 @@
+/* components/Main.css */
+
+/* 전체 컨테이너 스타일 */
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* 헤더 스타일 */
+  header {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  /* 푸터 스타일 */
+  footer {
+    background: gray;
+    text-align: center;
+    padding: 10px 0;
+}
+/* 콘텐츠 영역 전체 래퍼 */
+.content-wrapper {
+    display: flex;
+    flex: 1; /* 나머지 공간을 차지하도록 설정 */
+    margin: 20px;
+    justify-content: flex-start; /* 기본적으로 좌측 정렬 */
+  }
+  
+  /* 사이드 메뉴 */
+  aside {
+    width: 250px; /* 사이드바의 고정 너비 */
+    margin-right: 20px; /* 사이드 메뉴와 main 콘텐츠 사이 간격 */
+  }
+  
+  /* 메인 콘텐츠 */
+  .main-content {
+    flex: 1; /* 나머지 공간을 차지하도록 설정 */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* 세로 간격 */
+  }
+  
+  
+  /* 각 섹션에 대한 간격 조정 */
+  .CategoryMenu {
+    margin-bottom: 20px; /* 카테고리 메뉴와 콘텐츠 사이 간격 */
+  }
+  
+  .ContentSection {
+    margin-bottom: 20px; /* 이미지 슬라이더와 콘텐츠 사이 간격 */
+  }
+
+  @media (max-width: 768px) {
+    .content-wrapper {
+      flex-direction: column; /* 세로 배치 */
+    }
+  
+    aside {
+      width: 100%; /* 작은 화면에서 사이드바를 전체 너비로 */
+      margin-right: 0;
+    }
+  }
+  

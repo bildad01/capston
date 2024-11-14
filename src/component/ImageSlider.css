@@ -1,0 +1,54 @@
+/* 슬라이더 컨테이너 */
+.slider-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  overflow: hidden; /* 슬라이더 영역을 벗어난 이미지는 보이지 않음 */
+}
+
+/* 슬라이더 영역 */
+.slider {
+  display: flex;
+  width: 500%; /* 이미지를 5개까지 표시할 수 있는 크기 */
+  transition: transform 0.5s ease-in-out; /* 부드러운 애니메이션 */
+}
+
+/* 각 이미지 래퍼 */
+.image-wrapper {
+  width: 33.33%; /* 한 화면에 3개 이미지씩 보이도록 설정 */
+  padding: 10px; /* 테두리와 이미지 사이에 간격을 추가 */
+  box-sizing: border-box;
+}
+
+/* 이미지 스타일 */
+.slider-image {
+  width: 100%; /* 이미지가 래퍼에 맞게 늘어남 */
+  height: auto;
+  object-fit: cover; /* 이미지 크기가 영역을 가득 채우도록 설정 */
+  border: 2px solid #ccc; /* 테두리 추가 */
+  border-radius: 8px; /* 둥근 모서리 추가 */
+}
+
+/* 이전/다음 버튼 */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  z-index: 10;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}

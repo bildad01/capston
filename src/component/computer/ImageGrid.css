@@ -1,0 +1,19 @@
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4개의 열로 구성 */
+    gap: 10px; /* 각 이미지 박스 간의 간격 */
+  }
+  
+  .image-box {
+    background-color: #ddd; /* 임시 배경색 */
+    padding: 10px;
+    border: 1px solid #ccc; /* 각 이미지 박스 테두리 */
+  }
+  
+  .grid-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px; /* 이미지 모서리를 약간 둥글게 */
+  }
+  

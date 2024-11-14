@@ -1,0 +1,38 @@
+/* 네비게이션 바 스타일 */
+#navigation {
+    background-color: #000000;  /* 네비게이션 배경 색 */
+    padding: 20px 0;  /* 위, 아래 패딩 */
+    text-align: center;  /* 텍스트 가운데 정렬 */
+  }
+  
+  #navigation ul {
+    list-style-type: none;  /* 기본 리스트 스타일 제거 */
+    padding: 0;
+    margin: 0;
+    display: flex;  /* 리스트 항목을 가로로 배치 */
+    justify-content: center;  /* 가로로 가운데 정렬 */
+  }
+  
+  #navigation li {
+    margin: 0 15px;  /* 각 항목 사이에 간격 추가 */
+  }
+  
+  #navigation a {
+    text-decoration: none;  /* 링크 기본 스타일 제거 */
+    font-size: 18px;  /* 글자 크기 */
+    color: white;  /* 글자 색상 */
+    padding: 8px 16px;  /* 패딩 추가 */
+    border-radius: 4px;  /* 모서리 둥글게 */
+    transition: background-color 0.3s;  /* 배경색 변화 애니메이션 */
+  }
+  
+  /* 마우스를 올렸을 때 글씨 색 변경 */
+  #navigation a:hover {
+    color: #caddf2;  /* 호버 시 글씨 색상 변경 */
+  }
+  
+  /* 클릭 시 글씨 크기 커지기 */
+  #navigation a:active {
+    font-size: 22px;  /* 클릭 시 글씨 크기 증가 */
+    color: #004080;  /* 클릭 시 글씨 색상 변경 */
+  }
