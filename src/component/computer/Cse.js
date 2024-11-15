@@ -1,5 +1,5 @@
 import React from 'react';
-import ImageGrid from './components/computer/ImageGrid';
+import ImageGrid from './ImageGrid';
 
 function Cse() {
   // 네모난 박스로 대체할 이미지들
