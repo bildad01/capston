@@ -1,18 +1,140 @@
 /* 콘텐츠 섹션 감싸는 테두리 */
 .content-section {
-    border: 2px solid #ccc; /* 연한 회색 테두리 */
-    padding: 20px; /* 내용과 테두리 간 여백 */
-    border-radius: 8px; /* 모서리 둥글게 */
-    margin-bottom: 20px; /* 섹션 간 간격 */
-  }
+  margin-bottom: 20px;  /* 섹션 간 간격 */
+  box-sizing: border-box; /* padding을 포함한 크기 계산 */
+  min-width: 1024px; /* 최소 너비 설정 */
+  min-height: 768px; /* 최소 높이 설정 (필요하면 추가) */
+  margin: 0 auto; /* 페이지를 중앙에 정렬 */
+}
+
+/* 각 섹션에 대한 스타일 */
+.content-section .section {
+  margin-bottom: 20px;  /* 섹션 간 간격 */
+}
+
+.content-section h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* 슬라이더 컨테이너 */
+.slider-container {
+  border: 2px solid #ccc;  /* 테두리 추가 */
+  border-radius: 8px;  /* 모서리 둥글게 */
+  padding: 20px;  /* 내부 여백 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%; /* content-section의 너비에 맞춰 100%로 설정 */
+  overflow: hidden;  /* 슬라이더 영역을 벗어난 이미지는 보이지 않음 */
+  box-sizing: border-box; /* padding과 테두리를 포함하여 크기 계산 */
+}
+
+/* 슬라이더 영역 */
+.slider {
+  display: flex;
+  width: 500%;  /* 이미지를 5개까지 표시할 수 있는 크기 */
+  transition: transform 0.5s ease-in-out;  /* 부드러운 애니메이션 */
+}
+
+/* 이미지 래퍼 스타일 */
+.image-wrapper {
+  width: 100%;  /* 슬라이더의 너비에 맞게 */
+  height: 25vh;  /* 고정된 높이 설정 */
+  overflow: hidden;  /* 이미지가 박스를 벗어나지 않도록 숨김 */
+  position: relative;  /* 이미지 텍스트 배치를 위한 relative 설정 */
+  box-sizing: border-box; /* padding을 포함한 크기 계산 */
+  padding-left: 5px;  /* 좌측 여백 */
+  padding-right: 5px;  /* 우측 여백 */
+}
+
+/* 이미지 스타일 */
+.slider-image {
+  width: 100%;  /* 이미지가 래퍼에 맞게 늘어남 */
+  height: 25vh;  /* 화면 높이의 25%로 설정 */
+  object-fit: contain;  /* 이미지를 비율을 유지하며 컨테이너 내에 맞게 조정 */
+  border: 2px solid #ccc;  /* 테두리 추가 */
+  border-radius: 8px;  /* 둥근 모서리 추가 */
+  padding-left: 5px;  /* 좌측 여백 */
+  padding-right: 5px;  /* 우측 여백 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  /* 그림자 효과 추가 */
+  transition: all 0.3s ease;  /* 부드러운 전환 효과 */
+}
+
+/* 슬라이더 이미지에 마우스가 올라갔을 때 */
+.slider-image:hover {
+  filter: brightness(0.5);  /* 어두운 효과 */
+}
+
+/* 이미지 래퍼 스타일 */
+.image-wrapper {
   
-  /* 각 섹션에 대한 스타일 */
-  .content-section .section {
-    margin-bottom: 20px; /* 섹션 간 간격 */
-  }
-  
-  .content-section h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
+  position: relative;  /* 텍스트 위치를 이미지 위에 배치하기 위해 relative 설정 */
+  display: inline-block;
+  width: 100%;
+}
+
+/* 이미지 위 텍스트 */
+.image-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);  /* 텍스트를 중앙에 배치 */
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  opacity: 0;  /* 기본적으로 텍스트 숨기기 */
+  transition: opacity 0.3s ease;  /* 부드러운 전환 효과 */
+}
+
+/* 이미지 래퍼에 마우스를 올리면 텍스트가 보이도록 설정 */
+.image-wrapper:hover .image-text {
+  opacity: 1;  /* 텍스트 나타나기 */
+}
+
+
+/* 이전/다음 버튼 */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  z-index: 10;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+/* 버튼 컨테이너 */
+.button-container {
+  display: flex;  /* 버튼들을 가로로 배치 */
+  justify-content: flex-end;  /* 버튼을 오른쪽으로 정렬 */
+  margin-top: 20px;  /* 버튼 위쪽에 여백 추가 */
+  gap: 10px; /* 버튼 간 간격 설정 */
+}
+
+/* 버튼 스타일 */
+.action-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.action-button:hover {
+  background-color: #0056b3; /* 버튼 호버 시 색상 변경 */
+}
