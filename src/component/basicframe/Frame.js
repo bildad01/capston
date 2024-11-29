@@ -1,32 +1,44 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ImageGrid from './ImageGrid';
 
 function Frame() {
-  // 네모난 박스로 대체할 이미지들
-  const images = [
-    'https://via.placeholder.com/150', 'https://via.placeholder.com/150', 'https://via.placeholder.com/150', 'https://via.placeholder.com/150',
-    'https://via.placeholder.com/150', 'https://via.placeholder.com/150', 'https://via.placeholder.com/150', 'https://via.placeholder.com/150',
-    'https://via.placeholder.com/150', 'https://via.placeholder.com/150', 'https://via.placeholder.com/150', 'https://via.placeholder.com/150',
-    'https://via.placeholder.com/150', 'https://via.placeholder.com/150', 'https://via.placeholder.com/150', 'https://via.placeholder.com/150',
-    // 이미지가 더 많으면 페이지가 넘어가게 됩니다.
-    'https://via.placeholder.com/150', 'https://via.placeholder.com/150', 'https://via.placeholder.com/150', 'https://via.placeholder.com/150',
-    'https://via.placeholder.com/150', 'https://via.placeholder.com/150', 'https://via.placeholder.com/150', 'https://via.placeholder.com/150',
+  const [data, setData] = useState([]); // 데이터 상태 추가
+  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [currentPage, setCurrentPage] = useState(1);
+  const [error, setError] = useState(null); // 에러 상태 추가
+  const imagesPerPage = 16;
+
+  useEffect(() => {
+    // 백엔드에서 데이터 받아오기
+    fetch('http://127.0.0.1:5000/data')
+      .then((response) => response.json())
+      .then((data) => setData(data)) // 데이터를 state로 설정
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+        setError('데이터를 불러오는 데 실패했습니다.');
+      });
+  }, []);
+
+  // 카테고리 추출 및 중복 제거
+  const categories = [
+    ...new Set(data.flatMap((contest) => contest.category || [])), // 중첩 배열 처리
   ];
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const imagesPerPage = 16;
+  // 선택한 분야의 이미지 필터링
+  const filteredImages =
+    selectedCategory === 'All'
+      ? data
+      : data.filter((contest) =>
+          contest.category.includes(selectedCategory)
+        );
 
   // 현재 페이지에 해당하는 이미지 슬라이싱
   const indexOfLastImage = currentPage * imagesPerPage;
   const indexOfFirstImage = indexOfLastImage - imagesPerPage;
-  const currentImages = images.slice(indexOfFirstImage, indexOfLastImage);
+  const currentImages = filteredImages.slice(indexOfFirstImage, indexOfLastImage);
 
   // 페이지 번호 계산
-  const pageNumbers = [];
-  const totalPages = Math.ceil(images.length / imagesPerPage);
-  for (let i = 1; i <= totalPages; i++) {
-    pageNumbers.push(i);
-  }
+  const totalPages = Math.ceil(filteredImages.length / imagesPerPage);
 
   // 페이지 전환 함수
   const nextPage = () => {
@@ -41,9 +53,9 @@ function Frame() {
     }
   };
 
-  // 페이지 번호를 보여주는 부분 (ex: < 1 2 3 ... >)
+  // 페이지 번호를 보여주는 부분
   const paginate = () => {
-    const visiblePages = 3; // 한 번에 보여줄 페이지 번호의 개수
+    const visiblePages = 3;
     let start = Math.max(currentPage - Math.floor(visiblePages / 2), 1);
     let end = Math.min(start + visiblePages - 1, totalPages);
 
@@ -52,13 +64,11 @@ function Frame() {
     }
 
     const pageLinks = [];
-    if (start > 1) pageLinks.push('...');  // 첫 페이지보다 앞에 있는 페이지가 있을 경우 "..." 표시
-
+    if (start > 1) pageLinks.push('...');
     for (let i = start; i <= end; i++) {
       pageLinks.push(i);
     }
-
-    if (end < totalPages) pageLinks.push('...');  // 마지막 페이지보다 뒤에 있는 페이지가 있을 경우 "..." 표시
+    if (end < totalPages) pageLinks.push('...');
 
     return pageLinks.map((page, index) => (
       <span
@@ -77,26 +87,57 @@ function Frame() {
 
   return (
     <div className="App">
-      <h1>이건 전체 페이지인데 어떻게 분야를 나눠서 보여주지?</h1>
-      <ImageGrid images={currentImages} />
+      <h1>전체 공모전</h1>
 
+      {/* 에러 메시지 표시 */}
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+
+      {/* 분야 선택 버튼 */}
+      <div className="category-selection">
+        <button onClick={() => setSelectedCategory('All')}>All</button>
+        {categories.map((category, index) => (
+          <button
+            key={index}
+            onClick={() => setSelectedCategory(category)}
+            style={{
+              fontWeight: selectedCategory === category ? 'bold' : 'normal',
+            }}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+
+      <ImageGrid
+  images={currentImages.map((contest) => ({
+    img_url: contest.img_url,
+    title: contest.title, // Ensure you have the title available
+  }))}
+/>
+      {/* 페이지네이션 */}
       <div className="pagination">
-        <span 
-          onClick={prevPage} 
-          style={{ cursor: currentPage === 1 ? 'default' : 'pointer', padding: '0 5px' }}
-          disabled={currentPage === 1}
+        <span
+          onClick={prevPage}
+          style={{
+            cursor: currentPage === 1 ? 'not-allowed' : 'pointer',
+            padding: '0 5px',
+            opacity: currentPage === 1 ? 0.5 : 1,
+          }}
         >
-          &lt;  {/* "<" 기호 */}
+          &lt; {/* "<" 기호 */}
         </span>
 
         {paginate()}
 
-        <span 
-          onClick={nextPage} 
-          style={{ cursor: currentPage === totalPages ? 'default' : 'pointer', padding: '0 5px' }}
-          disabled={currentPage === totalPages}
+        <span
+          onClick={nextPage}
+          style={{
+            cursor: currentPage === totalPages ? 'not-allowed' : 'pointer',
+            padding: '0 5px',
+            opacity: currentPage === totalPages ? 0.5 : 1,
+          }}
         >
-          &gt;  {/* ">" 기호 */}
+          &gt; {/* ">" 기호 */}
         </span>
       </div>
     </div>

@@ -1,3 +1,4 @@
+// Main.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './Main.css';
@@ -11,7 +12,7 @@ import Addpost from './component/message/Addpost';
 
 // import Competitions from './component/Competitions'; // 예시 컴포넌트 추가
 
-export default function Main() {
+export default function Main({data}) {
   return (
     <Router> {/* Router로 전체를 감쌉니다 */}
       <div className="container">

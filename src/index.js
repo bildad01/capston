@@ -1,17 +1,17 @@
+// index.js
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom/client';  // 'react-dom/client'에서 'createRoot' 사용
+import App from './App';  // App.js에서 컴포넌트 불러오기
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import Main from './Main';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// React 18에서 새로운 방식으로 앱을 렌더링
+const root = ReactDOM.createRoot(document.getElementById('root'));  // 'root' DOM 요소를 찾고
 root.render(
   <React.StrictMode>
-    <Main />
+    <App />  {/* App 컴포넌트 실행 */}
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+// 성능 측정을 원할 경우, reportWebVitals로 기록할 수 있습니다.
 reportWebVitals();

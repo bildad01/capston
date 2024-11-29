@@ -1,35 +1,71 @@
 .App h1 {
-  text-align: center;  /* 제목 중앙 정렬 */
-  font-size: 40px;  /* 제목 크기 */
-  margin-bottom: 15px;  /* 제목 아래 여백 */
-  
+  text-align: center;  /* 제목을 중앙 정렬 */
+  font-size: 30px;  /* 제목의 글자 크기 설정 */
+  margin-bottom: 15px;  /* 제목 아래에 15px의 여백 추가 */
 }
+
 .image-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4개의 열로 구성 */
-    gap: 10px; /* 각 이미지 박스 간의 간격 */
-  }
-  
-  .image-box {
-    background-color: #ddd; /* 임시 배경색 */
-    padding: 10px;
-    border: 1px solid #ccc; /* 각 이미지 박스 테두리 */
-  }
-  
-  .image-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4개의 열 */
-    gap: 20px; /* 그리드 항목 간 간격 */
-    max-width: 1200px; /* 그리드의 최대 너비 */
-    margin: 0 auto; /* 자동으로 좌우 여백 */
-    padding: 20px; /* 내부 여백 */
-  }
-  
-  
-  .grid-image {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 4px; /* 이미지 모서리를 약간 둥글게 */
-  }
-  
+  display: grid;  /* 그리드 레이아웃을 사용 */
+  grid-template-columns: repeat(4, 1fr); /* 4개의 열로 구성된 그리드 설정 */
+  gap: 15px;  /* 그리드 항목들 사이에 15px의 간격을 설정 */
+}
+
+.image-container {
+  position: relative;  /* 이미지 컨테이너의 위치를 상대적으로 설정 */
+  overflow: hidden;  /* 이미지가 컨테이너 밖으로 넘지 않도록 설정 */
+  width: 100%;  /* 컨테이너의 너비를 100%로 설정 */
+  height: 100%;  /* 컨테이너의 높이를 100%로 설정 */
+}
+
+.image-item {
+  width: 100%;  /* 이미지의 너비를 컨테이너에 맞게 100%로 설정 */
+  height: auto;  /* 이미지의 높이를 자동으로 설정하여 비율 유지 */
+  transition: transform 0.3s ease, opacity 0.3s ease;  /* 이미지에 애니메이션을 추가 */
+  border-radius: 8px;  /* 이미지 모서리를 8px로 둥글게 설정 */
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);  /* 내부 음영 효과 */
+  transform: scale(1);  /* 이미지 기본 크기 */
+}
+
+/* 호버 시, 이미지에 입체감이 느껴지도록 확대 및 밝기 조정 */
+.image-container:hover .image-item {
+  transform: scale(1.05);  /* 이미지를 살짝 확대하여 입체감을 줌 */
+  opacity: 0.9;  /* 이미지의 투명도를 약간 줄여서 강조 효과 추가 */
+}
+
+
+.overlay {
+  position: absolute;  /* 오버레이는 이미지 위에 고정되도록 설정 */
+  top: 0;  /* 오버레이의 상단을 0으로 설정 */
+  left: 0;  /* 오버레이의 왼쪽을 0으로 설정 */
+  width: 100%;  /* 오버레이의 너비를 100%로 설정 */
+  height: 100%;  /* 오버레이의 높이를 100%로 설정 */
+  background-color: rgba(0, 0, 0, 0.5); /* 어두운 반투명 배경색을 설정 (rgba 값으로 50% 투명도) */
+  display: flex;  /* Flexbox를 사용하여 중앙 정렬을 위한 설정 */
+  justify-content: center;  /* 수평 중앙 정렬 */
+  align-items: center;  /* 수직 중앙 정렬 */
+  opacity: 0;  /* 기본 상태에서는 오버레이를 숨김 */
+  transition: opacity 0.3s ease;  /* 오버레이의 표시/숨김에 애니메이션 효과 추가 */
+}
+
+.image-container:hover .overlay {
+  opacity: 1;  /* 이미지 컨테이너에 마우스를 올렸을 때 오버레이를 보이게 설정 */
+}
+
+.title {
+  color: white;  /* 타이틀 텍스트 색상을 흰색으로 설정 */
+  font-size: 18px;  /* 타이틀 텍스트 크기 설정 */
+  font-weight: bold;  /* 타이틀 텍스트를 굵게 설정 */
+  text-align: center;  /* 타이틀을 중앙 정렬 */
+}
+
+
+.image-container:hover .image-item {
+  opacity: 0.6; /* 이미지에 마우스를 올렸을 때, 이미지의 투명도를 0.6으로 설정하여 어두워 보이도록 만듦 */
+}
+
+.grid-image {
+  width: 100%;  /* 이미지를 컨테이너에 맞게 100% 너비로 설정 */
+  height: auto;  /* 이미지의 높이는 자동으로 설정하여 비율을 유지 */
+  display: block;  /* 이미지를 블록 레벨 요소로 설정하여 수평 정렬이 되지 않도록 만듦 */
+  border-radius: 4px; /* 이미지의 모서리를 약간 둥글게 설정 */
+}
