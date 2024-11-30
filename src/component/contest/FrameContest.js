@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ImageGrid from './ImageGrid';
 
-function Frame() {
+function FrameContest() {
   const [data, setData] = useState([]); // 데이터 상태 추가
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [currentPage, setCurrentPage] = useState(1);
@@ -19,10 +19,13 @@ function Frame() {
       });
   }, []);
 
-  // 카테고리 추출 및 중복 제거
+  // 제외할 카테고리 리스트
+  const excludedCategories = ['대외활동/서포터즈', '취업/창업', '봉사활동'];
+
+  // 카테고리 추출 및 중복 제거, 제외할 카테고리 필터링
   const categories = [
-    ...new Set(data.flatMap((contest) => contest.category || [])), // 중첩 배열 처리
-  ];
+    ...new Set(data.flatMap((contest) => contest.category || [])) // 중첩 배열 처리
+  ].filter(category => !excludedCategories.includes(category));
 
   // 선택한 분야의 이미지 필터링
   const filteredImages =
@@ -85,6 +88,15 @@ function Frame() {
     ));
   };
 
+  // 마감기한을 계산하는 함수
+  const getDeadline = (endDate) => {
+    const now = new Date();
+    const deadline = new Date(endDate);
+    const diffTime = deadline - now;
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    return diffDays >= 0 ? `D-${diffDays}` : '마감';
+  };
+
   return (
     <div className="App">
       <h1>전체 공모전</h1>
@@ -94,7 +106,7 @@ function Frame() {
 
       {/* 분야 선택 버튼 */}
       <div className="category-selection">
-        <button onClick={() => setSelectedCategory('All')}>All</button>
+        <button onClick={() => setSelectedCategory('All')}>전체</button>
         {categories.map((category, index) => (
           <button
             key={index}
@@ -109,11 +121,13 @@ function Frame() {
       </div>
 
       <ImageGrid
-  images={currentImages.map((contest) => ({
-    img_url: contest.img_url,
-    title: contest.title, // Ensure you have the title available
-  }))}
-/>
+        images={currentImages.map((contest) => ({
+          img_url: contest.img_url,
+          title: contest.title, // Ensure you have the title available
+          deadline: getDeadline(contest.end_date), // 마감기한 표시
+        }))}
+      />
+
       {/* 페이지네이션 */}
       <div className="pagination">
         <span
@@ -144,4 +158,4 @@ function Frame() {
   );
 }
 
-export default Frame;
+export default FrameContest;

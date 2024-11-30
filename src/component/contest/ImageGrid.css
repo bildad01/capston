@@ -8,6 +8,8 @@
   display: grid;  /* 그리드 레이아웃을 사용 */
   grid-template-columns: repeat(4, 1fr); /* 4개의 열로 구성된 그리드 설정 */
   gap: 15px;  /* 그리드 항목들 사이에 15px의 간격을 설정 */
+  margin-top: 20px;
+
 }
 
 .image-container {
@@ -50,12 +52,25 @@
 .image-container:hover .overlay {
   opacity: 1;  /* 이미지 컨테이너에 마우스를 올렸을 때 오버레이를 보이게 설정 */
 }
+/* 디데이 텍스트 스타일 */
+.dday {
+  font-size: 1.5em; /* 큰 글씨 크기 */
+  font-weight: bold; /* 굵은 글씨 */
+  margin-bottom: 10px; /* 하단 여백 */
+  color: #000000; /* 어두운 색상 */
+  text-align: left;  /* 왼쪽 정렬 */
+  align-self: flex-start; /* 세로 방향으로 위쪽 정렬 */
 
+}
+
+/* 제목 텍스트 스타일 */
 .title {
-  color: white;  /* 타이틀 텍스트 색상을 흰색으로 설정 */
-  font-size: 18px;  /* 타이틀 텍스트 크기 설정 */
-  font-weight: bold;  /* 타이틀 텍스트를 굵게 설정 */
-  text-align: center;  /* 타이틀을 중앙 정렬 */
+  font-size: 0.9em; /* 제목 글씨 크기 */
+  font-weight: 900;
+  color: #000000; /* 어두운 색상 */
+  border-bottom: 2px solid #ccc; /* 제목 아래에 가로선 추가 */
+  padding-bottom: 5px; /* 가로선과 텍스트 사이의 여백 */
+  margin-bottom: 10px; /* 가로선과 카테고리 사이의 여백 */
 }
 
 

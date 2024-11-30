@@ -1,140 +1,153 @@
-/* 콘텐츠 섹션 감싸는 테두리 */
-.content-section {
-  margin-bottom: 20px;  /* 섹션 간 간격 */
-  box-sizing: border-box; /* padding을 포함한 크기 계산 */
-  min-width: 1024px; /* 최소 너비 설정 */
-  min-height: 768px; /* 최소 높이 설정 (필요하면 추가) */
-  margin: 0 auto; /* 페이지를 중앙에 정렬 */
+/* ContentSection.css */
+/* 섹션 제목 스타일 */
+.section h2 {
+  font-size: 1.8em; /* 제목 크기 */
+  font-weight: 500; /* 굵은 글씨 */
+  color: #333333; /* 텍스트 색상 */
+  text-align: left; /* 왼쪽 정렬 */
+  margin-bottom: 20px; /* 제목과 내용 간 여백 */
+  padding-bottom: 10px; /* 제목과 가로선 사이에 여백 추가 */
+  border-bottom: 3px solid #000000; /* 제목 아래에 두꺼운 가로선 추가 */
 }
-
-/* 각 섹션에 대한 스타일 */
-.content-section .section {
-  margin-bottom: 20px;  /* 섹션 간 간격 */
-}
-
-.content-section h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-/* 슬라이더 컨테이너 */
+/* 슬라이더 컨테이너: 슬라이드 전체 영역 */
 .slider-container {
-  border: 2px solid #ccc;  /* 테두리 추가 */
-  border-radius: 8px;  /* 모서리 둥글게 */
-  padding: 20px;  /* 내부 여백 */
-  display: flex;
-  justify-content: center;
-  align-items: center;
   position: relative;
-  width: 100%; /* content-section의 너비에 맞춰 100%로 설정 */
-  overflow: hidden;  /* 슬라이더 영역을 벗어난 이미지는 보이지 않음 */
-  box-sizing: border-box; /* padding과 테두리를 포함하여 크기 계산 */
-}
-
-/* 슬라이더 영역 */
-.slider {
-  display: flex;
-  width: 500%;  /* 이미지를 5개까지 표시할 수 있는 크기 */
-  transition: transform 0.5s ease-in-out;  /* 부드러운 애니메이션 */
-}
-
-/* 이미지 래퍼 스타일 */
-.image-wrapper {
-  width: 100%;  /* 슬라이더의 너비에 맞게 */
-  height: 25vh;  /* 고정된 높이 설정 */
-  overflow: hidden;  /* 이미지가 박스를 벗어나지 않도록 숨김 */
-  position: relative;  /* 이미지 텍스트 배치를 위한 relative 설정 */
-  box-sizing: border-box; /* padding을 포함한 크기 계산 */
-  padding-left: 5px;  /* 좌측 여백 */
-  padding-right: 5px;  /* 우측 여백 */
-}
-
-/* 이미지 스타일 */
-.slider-image {
-  width: 100%;  /* 이미지가 래퍼에 맞게 늘어남 */
-  height: 25vh;  /* 화면 높이의 25%로 설정 */
-  object-fit: contain;  /* 이미지를 비율을 유지하며 컨테이너 내에 맞게 조정 */
-  border: 2px solid #ccc;  /* 테두리 추가 */
-  border-radius: 8px;  /* 둥근 모서리 추가 */
-  padding-left: 5px;  /* 좌측 여백 */
-  padding-right: 5px;  /* 우측 여백 */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  /* 그림자 효과 추가 */
-  transition: all 0.3s ease;  /* 부드러운 전환 효과 */
-}
-
-/* 슬라이더 이미지에 마우스가 올라갔을 때 */
-.slider-image:hover {
-  filter: brightness(0.5);  /* 어두운 효과 */
-}
-
-/* 이미지 래퍼 스타일 */
-.image-wrapper {
-  
-  position: relative;  /* 텍스트 위치를 이미지 위에 배치하기 위해 relative 설정 */
-  display: inline-block;
   width: 100%;
-}
-
-/* 이미지 위 텍스트 */
-.image-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);  /* 텍스트를 중앙에 배치 */
-  color: white;
-  font-size: 18px;
-  font-weight: bold;
-  opacity: 0;  /* 기본적으로 텍스트 숨기기 */
-  transition: opacity 0.3s ease;  /* 부드러운 전환 효과 */
-}
-
-/* 이미지 래퍼에 마우스를 올리면 텍스트가 보이도록 설정 */
-.image-wrapper:hover .image-text {
-  opacity: 1;  /* 텍스트 나타나기 */
+  max-width: 950px;
+  overflow: hidden;
+  margin: 0 auto; /* 중앙 정렬 */
 }
 
 
-/* 이전/다음 버튼 */
-.prev, .next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  font-size: 18px;
-  z-index: 10;
+/* 슬라이더 이미지들이 담길 영역: 이미지들을 가로로 나열 */
+.slider {
+  display: flex; /* 이미지를 가로로 나열 */
+  transition: transform 0.5s ease-in-out; /* 슬라이드 전환 효과 */
 }
 
-.prev {
-  left: 10px;
+/* 각 슬라이드 이미지: 각 슬라이드에 대한 스타일 */
+.slide {
+  flex: 0 0 auto; /* 이미지 크기 고정, 자동 크기 조정 안 함 */
+  width: calc(33.33% - 10px); /* 각 이미지는 너비 33.33%로 설정 (간격 고려) */
+  margin-right: 10px; /* 슬라이드 간격 설정 */
+  box-sizing: border-box; /* padding과 border를 포함한 크기 계산 */
 }
 
-.next {
-  right: 10px;
+/* 이미지 스타일: 슬라이드 이미지에 대한 스타일 */
+.slider-image {
+  width: 100%; /* 이미지의 너비를 부모 컨테이너에 맞게 설정 */
+  height: auto; /* 이미지의 높이는 비율에 맞게 자동 설정 */
+  border-radius: 8px; /* 이미지의 모서리 둥글게 처리 */
 }
-/* 버튼 컨테이너 */
+
+/* 페이지네이션 버튼: 슬라이드 이동 버튼 */
+.pagination {
+  text-align: center; /* 버튼을 가운데 정렬 */
+  margin-top: 10px; /* 버튼 위 여백 */
+}
+
+/* 페이지네이션 버튼 스타일 */
+.pagination-button {
+  display: inline-block; /* 버튼을 가로로 나열 */
+  width: 1px;  /* 버튼 크기를 적당히 설정 */
+  height: 30px; /* 버튼의 높이 설정 */
+  background-color: rgba(87, 87, 87, 0.5); /* 버튼 배경 색상 설정 (반투명 회색) */
+  border: none; /* 테두리 제거 */
+  border-radius: 50%; /* 버튼을 원형으로 만듦 */
+  margin: 0 4px; /* 버튼 간격 설정 */
+  cursor: pointer; /* 마우스 포인터를 손 모양으로 변경 */
+  transition: background-color 0.3s ease; /* 배경색 변화에 애니메이션 추가 */
+}
+
+/* 활성화된 페이지네이션 버튼 스타일 */
+.pagination-button.active {
+  background-color: rgba(64, 134, 255, 0.8); /* 활성화된 버튼의 배경 색상 변경 */
+}
+
+/* 페이지네이션 버튼 호버 시 스타일 */
+.pagination-button:hover {
+  background-color: rgba(64, 134, 255, 1); /* 마우스를 올렸을 때 배경색 변경 */
+}
+
+/* 이미지 오버레이 스타일: 이미지 위에 나타날 텍스트 오버레이 */
+.image-container {
+  position: relative; /* 자식 요소(오버레이)의 절대 위치를 설정할 수 있도록 */
+  width: 100%; /* 너비 100%로 설정 */
+  height: auto; /* 높이는 자동으로 설정 */
+}
+
+/* 이미지 오버레이 */
+.image-overlay {
+  position: absolute; /* 절대 위치 지정 */
+  top: 50%; /* 오버레이의 상단 위치를 부모 이미지 높이의 15%로 설정 */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255); /* 반투명 흰색 배경 (투명도 추가) */
+  color: #000; /* 텍스트 색상 */
+  display: flex; /* 텍스트를 세로로 정렬 */
+  flex-direction: column;
+  justify-content: center; /* 수직 정렬 */
+  align-items: center; /* 수평 정렬 */
+  opacity: 0; /* 기본적으로 오버레이는 숨겨짐 */
+  transition: opacity 0.3s ease; /* 오버레이가 나타날 때 애니메이션 효과 */
+  border-radius: 8px; /* 모서리 둥글게 처리 */
+
+}
+
+/* 오버레이에 마우스를 올렸을 때 나타나는 스타일 */
+.image-container:hover .image-overlay {
+  opacity: 1; /* 마우스를 올리면 오버레이가 나타남 */
+}
+
+/* 디데이 텍스트 스타일 */
+.dday {
+  font-size: 1.5em; /* 큰 글씨 크기 */
+  font-weight: bold; /* 굵은 글씨 */
+  margin-bottom: 10px; /* 하단 여백 */
+  color: #000000; /* 어두운 색상 */
+  text-align: left;  /* 왼쪽 정렬 */
+  align-self: flex-start; /* 세로 방향으로 위쪽 정렬 */
+}
+
+
+/* 제목 텍스트 스타일 */
+.title {
+  font-size: 0.9em; /* 제목 글씨 크기 */
+  font-weight: 900;
+  color: #000000; /* 어두운 색상 */
+  border-bottom: 2px solid #ccc; /* 제목 아래에 가로선 추가 */
+  padding-bottom: 5px; /* 가로선과 텍스트 사이의 여백 */
+  margin-bottom: 10px; /* 가로선과 카테고리 사이의 여백 */
+}
+
+/* 카테고리 텍스트 스타일: 이미지나 제목 아래에 나타나는 카테고리 */
+.category {
+  font-size: 0.8em; /* 일반적인 글씨 크기 */
+  font-weight: 600;
+  color: #535353; /* 약간 더 연한 색상 */
+  margin-top: 5px; /* 상단 여백 */
+}
+
+/* 버튼 컨테이너 스타일: 버튼들을 감싸는 영역 */
 .button-container {
-  display: flex;  /* 버튼들을 가로로 배치 */
-  justify-content: flex-end;  /* 버튼을 오른쪽으로 정렬 */
-  margin-top: 20px;  /* 버튼 위쪽에 여백 추가 */
-  gap: 10px; /* 버튼 간 간격 설정 */
+  margin-top: 20px; /* 버튼 위 여백 */
+  text-align: center; /* 버튼을 가운데 정렬 */
 }
 
-/* 버튼 스타일 */
+/* 버튼 스타일: 클릭 가능한 버튼 */
 .action-button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  background-color: #4682b4; /* 버튼 배경 색상 (파란색 계열) */
+  color: white; /* 버튼 텍스트 색상 (흰색) */
+  padding: 10px 20px; /* 버튼 내 여백 */
+  font-size: 16px; /* 글씨 크기 */
+  border: none; /* 테두리 제거 */
+  border-radius: 5px; /* 둥근 모서리 */
+  cursor: pointer; /* 마우스를 올리면 손 모양 커서 */
+  transition: background-color 0.3s ease; /* 배경색 변화 애니메이션 */
 }
 
+/* 버튼 호버 시 스타일 */
 .action-button:hover {
-  background-color: #0056b3; /* 버튼 호버 시 색상 변경 */
+  background-color: #5a9bd4; /* 마우스를 올리면 배경색 변경 (밝은 파란색) */
 }

@@ -4,6 +4,7 @@ import Main from './Main';
 
 function App() {
   const [data, setData] = useState([]);
+  
 
   useEffect(() => {
     fetch('http://localhost:5000/data')
@@ -18,6 +19,7 @@ function App() {
   }, []);
 
   return (
+    
     <div>
       <Main data={data} /> {/* data를 Main 컴포넌트로 전달 */}
     </div>

@@ -7,7 +7,8 @@ import Navigation from './component/layout/Navigation';
 import Footer from './component/layout/Footer';
 import CategoryMenu from './component/layout/CategoryMenu';
 import ContentSection from './component/ContentSection';
-import Frame from './component/basicframe/Frame';
+import FrameContest from './component/contest/FrameContest';
+import FrameActivity from './component/contest/FrameActivity';
 import Addpost from './component/message/Addpost';
 
 // import Competitions from './component/Competitions'; // 예시 컴포넌트 추가
@@ -26,7 +27,8 @@ export default function Main({data}) {
             {/* Routes 추가: ContentSection을 기본값으로, 다른 경로는 동적으로 */}
             <Routes>
               <Route path="/" element={<ContentSection />} />
-              <Route path="/Frame" element={<Frame />} />
+              <Route path="/FrameContest" element={<FrameContest />} />
+              <Route path="/FrameActivity" element={<FrameActivity />} />
               <Route path="/Addpost" element={<Addpost />} />
             
             </Routes>
