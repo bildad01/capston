@@ -1,0 +1,100 @@
+/* Join.module.css */
+.loginContainer {
+  background: linear-gradient(145deg, #f5f7fa, #c3cfe2); /* 그라디언트 배경 */
+  padding: 30px 40px; /* 여백을 더 넓게 */
+  border-radius: 15px; /* 둥근 모서리 강조 */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.05); /* 깊이감을 주는 그림자 */
+  text-align: center;
+  width: 450px; /* 넓은 화면을 위해 크기 조정 */
+  margin: 0 auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* 로그인 제목 */
+.loginTitle {
+  font-size: 36px;
+  font-weight: 600;
+  margin-bottom: 25px;
+  color: #333333;
+  font-family: 'Arial', sans-serif;
+  letter-spacing: 1px;
+}
+
+/* 로그인 폼 */
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 25px; /* 간격 늘리기 */
+}
+
+/* 입력 필드 */
+.loginInput {
+  padding: 15px;
+  font-size: 16px;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* 애니메이션 효과 */
+}
+
+.loginInput:focus {
+  outline: none;
+  border-color: #007bff; /* 기존 파란색 */
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.4);
+}
+
+/* 성별 선택 그룹 */
+.genderGroup {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px; /* 간격을 적당히 벌려줌 */
+  margin-bottom: 15px;
+}
+
+.genderGroup label {
+  font-size: 18px;
+  color: #333;
+}
+
+/* 로그인 버튼 */
+.loginButton {
+  padding: 12px 25px;
+  font-size: 16px;
+  background-color: #007bff; /* 기존 파란색 */
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3); /* 버튼에 그림자 효과 */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.loginButton:hover {
+  background-color: #0056b3; /* hover 시 더 진한 파란색 */
+  transform: translateY(-2px); /* 마우스 오버 시 버튼이 올라가는 효과 */
+}
+
+/* 회원가입 링크 */
+.joinLink {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #007bff; /* 기존 파란색 */
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.joinLink:hover {
+  color: #0056b3; /* hover 시 더 진한 파란색 */
+  text-decoration: underline;
+}
+
+/* 에러 메시지 */
+.errorMessage {
+  color: #d9534f; /* 붉은색 에러 메시지 */
+  font-size: 14px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-weight: 600;
+}

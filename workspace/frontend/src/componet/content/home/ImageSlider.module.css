@@ -1,0 +1,13 @@
+/* ImageSlider.module.css */
+.sliderContainer {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .sliderImage {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* 이미지의 모서리를 둥글게 */
+  }
+  

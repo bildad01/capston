@@ -1,0 +1,141 @@
+/* 기본 컨테이너 스타일 */
+.container {
+  width: 85%;
+  margin: 0 auto;
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+}
+
+/* 테이블 스타일 */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 30px;
+  background-color: #fff;
+  border-radius: 8px; /* 부드러운 테두리 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* 고급스러운 그림자 */
+}
+
+/* 테이블 헤더 스타일 */
+.table th {
+  background-color: #34495e; /* 고급스러운 다크 블루 색상 */
+  color: #fff;
+  font-size: 16px;
+  padding: 12px 20px;
+  text-align: left;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-bottom: 2px solid #2c3e50; /* 헤더와 본문 구분선 */
+}
+
+/* 테이블 셀 스타일 */
+.table th, .table td {
+  padding: 12px 20px;
+  text-align: left;
+  font-size: 14px;
+  color: #7f8c8d; /* 약간 밝은 텍스트 색상 */
+  border-bottom: 1px solid #ecf0f1; /* 셀 간 경계 */
+}
+
+/* 짝수 행 배경색 */
+.table tr:nth-child(even) {
+  background-color: #f4f6f7;
+}
+
+/* 행 hover 스타일 */
+.table tr:hover {
+  background-color: #ecf0f1;
+}
+
+/* 제목 스타일 */
+.title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* 페이지네이션 스타일 */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+/* 페이지네이션 버튼 기본 스타일 */
+.pagination button {
+  padding: 8px 16px;
+  border: 1px solid #34495e; /* 파란색 테두리 */
+  background-color: #fff;
+  color: #282626;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* 페이지네이션 버튼 hover 효과 */
+.pagination button:hover {
+  background-color: 34495e;
+  color: #fff;
+}
+
+/* 활성 페이지 스타일 */
+.pagination .activePage {
+  background-color: #34495e;
+  font-weight: bold;
+  border: 1px solid #34495e;
+  cursor: default;
+}
+
+/* 페이지네이션 버튼 비활성화 상태 */
+.pagination button:disabled {
+  background-color: #ecf0f1;
+  color: #bdc3c7;
+  cursor: not-allowed;
+}
+
+/* 버튼 스타일 */
+.button {
+  padding: 10px 20px;
+  background-color: #34495e; /* 파란색 배경 */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* 버튼 hover 효과 */
+.button:hover {
+  background-color: #507090;
+}
+
+/* 선택 필터 스타일 */
+.categoryFilter {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.categoryFilter label {
+  font-size: 16px;
+  color: #34495e;
+}
+
+.categoryFilter select {
+  padding: 8px 16px;
+  border: 1px solid #bdc3c7;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #34495e;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+.categoryFilter select:hover {
+  border-color: #34495e;
+}

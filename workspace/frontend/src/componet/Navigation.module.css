@@ -1,0 +1,56 @@
+/* .navigation 클래스: 네비게이션 바 스타일 정의 */
+.navigation {
+    background: linear-gradient(90deg, #004080, #2a6db0); /* 가로 방향 그라데이션 */
+    padding: 15px 0; /* 상하 여백 조정 */
+    text-align: center; /* 텍스트 가운데 정렬 */
+    border-top: 1px solid #2a6db0; /* 상단 테두리 밝은 파란색 */
+    border-bottom: 1px solid #004080; /* 하단 테두리 어두운 파란색 */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* 약간의 그림자 추가 */
+    box-sizing: border-box; /* 테두리와 패딩 포함 */
+}
+
+/* .navigation ul: 네비게이션 항목의 리스트 스타일 정의 */
+.navigation ul {
+    list-style-type: none; /* 리스트 점 제거 */
+    padding: 0; /* 안쪽 여백 제거 */
+    margin: 0; /* 바깥 여백 제거 */
+    display: flex; /* 플렉스 박스 사용 */
+    justify-content: center; /* 리스트 항목 가운데 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+    gap: 20px; /* 리스트 항목 간격 */
+}
+
+/* .navigation li: 리스트 항목 스타일 정의 */
+.navigation li {
+    margin: 0; /* 기존 마진 제거 */
+}
+
+/* .navigation a: 링크 스타일 정의 */
+.navigation a {
+    text-decoration: none; /* 밑줄 제거 */
+    font-size: 16px; /* 글자 크기 조정 */
+    color: #ffffff; /* 글자 색상 흰색 */
+    padding: 10px 20px; /* 링크 안쪽 여백 */
+    border-radius: 20px; /* 둥근 모서리 강조 */
+    font-weight: bold; /* 글자 굵게 설정 */
+    transition: transform 0.3s ease, background-color 0.3s ease; /* 애니메이션 효과 */
+    line-height: 1.5; /* 줄 높이 조정 */
+    background: rgba(255, 255, 255, 0.1); /* 약간의 배경색 추가 */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15); /* 약간의 그림자 효과 */
+}
+
+/* .navigation a:hover: 링크에 마우스를 올렸을 때 효과 */
+.navigation a:hover {
+    color: #004080; /* 글자 색상 어두운 파란색으로 변경 */
+    background: #ffffff; /* 배경색 흰색으로 변경 */
+    transform: scale(1.1); /* 크기 확대 */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25); /* 그림자 강화 */
+}
+
+/* .navigation a:active: 링크를 클릭했을 때 효과 */
+.navigation a:active {
+    color: #2a6db0; /* 글자 색상 밝은 파란색 */
+    background: rgba(255, 255, 255, 0.2); /* 배경 투명도 조정 */
+    transform: scale(1); /* 원래 크기로 복구 */
+    box-shadow: none; /* 그림자 제거 */
+}

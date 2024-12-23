@@ -1,0 +1,150 @@
+/* boardListContainer 스타일 */
+.boardContainer {
+    padding: 20px;
+    background-color: #f9f9f9; /* 배경색을 더 밝은 색으로 */
+    border-radius: 8px; /* 부드러운 모서리 처리 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 부드러운 그림자 */
+}
+
+/* 목차 스타일 (테이블 형태) */
+.tableOfContents table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white; /* 테이블 배경 색상 */
+    border-radius: 8px; /* 테이블 모서리 부드럽게 처리 */
+    overflow: hidden; /* 테이블의 overflow 방지 */
+}
+
+/* 테이블 셀 스타일 */
+.tableOfContents th,
+.tableOfContents td {
+    padding: 12px 16px; /* 여백 추가 */
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0; /* 하단 테두리 색상 변경 */
+    font-size: 14px; /* 글자 크기 줄이기 */
+    color: #555; /* 텍스트 색상 변경 */
+}
+
+/* '분류' 열 크기 */
+.tableOfContents th:nth-child(1),
+.tableOfContents td:nth-child(1) {
+    width: 20%;
+    font-weight: normal;
+}
+
+/* '제목' 열 크기 */
+.tableOfContents th:nth-child(2),
+.tableOfContents td:nth-child(2) {
+    width: 200px; /* 제목 열의 너비 조정 */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+    color: #555; /* 링크 색상처럼 보이도록 */
+}
+
+/* '작성자' 열 크기 */
+.tableOfContents th:nth-child(3),
+.tableOfContents td:nth-child(3) {
+    width: 20%;
+}
+
+/* '작성일' 열 크기 */
+.tableOfContents th:nth-child(4),
+.tableOfContents td:nth-child(4) {
+    width: 20%;
+}
+
+/* 헤더 스타일 */
+.tableOfContents th {
+    background-color: #f1f1f1; /* 헤더 배경 색상 */
+    color: #333; /* 헤더 텍스트 색상 */
+    font-weight: bold;
+    text-transform: uppercase; /* 대문자로 변환 */
+    letter-spacing: 1px; /* 글자 간격 조정 */
+}
+
+/* 테이블 행 클릭 시 스타일 */
+.tableOfContents tr:hover {
+    background-color: #f5f5f5;
+    cursor: pointer;
+}
+
+/* 글쓰기 버튼 스타일 */
+.writeButton {
+    padding: 8px 16px;
+    background-color: #4b89cc; /* 파란색 배경 */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* 배경색 변화 부드럽게 */
+}
+
+.writeButton:hover {
+    background-color: #0056b3; /* 호버 시 진한 파란색으로 변경 */
+}
+
+/* 카테고리 필터 스타일 */
+.categoryFilter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.categoryFilter label {
+    margin-right: 10px;
+}
+
+.categoryFilter select {
+    margin-right: 0;
+}
+
+.writeButton {
+    margin-left: auto;
+}
+
+/* 필터와 버튼을 함께 두는 컨테이너 스타일 */
+.filterAndButtonContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 페이지네이션 스타일 */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+/* 페이지네이션 버튼 스타일 */
+.paginationButton {
+    padding: 6px 12px;
+    background-color:  #4b89cc; /* 파란색 배경 */
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.paginationButton:hover:not(:disabled) {
+    background-color: #0056b3; /* 호버 시 진한 파란색 */
+    color: #fff; /* 텍스트 색상은 흰색으로 고정 */
+}
+
+.paginationButton:disabled {
+    background-color: #ddd; /* 비활성화된 버튼 배경 */
+    color: #aaa; /* 비활성화된 텍스트 색상 */
+    cursor: not-allowed;
+}
+
+.activePage {
+    font-weight: bold;
+    text-decoration: underline;
+    cursor: default;
+}

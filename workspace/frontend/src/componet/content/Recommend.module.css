@@ -1,0 +1,40 @@
+/* Recommend.module.css */
+.container {
+  text-align: center;
+}
+
+.recommend-list { 
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  list-style-type: none;
+  padding: 0;
+}
+
+.recommend-item { 
+  cursor: pointer; /* 마우스를 올리면 포인터로 변경 */
+  margin: 10px;
+  width: 200px; /* 공모전 항목의 너비 설정 */
+  text-align: center;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* 항목에 부드러운 크기 변화와 그림자 효과 */
+}
+
+/* 항목에 마우스를 올렸을 때 */
+.recommend-item:hover {
+  transform: scale(1.05); /* 항목을 5% 확대 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* 항목에 부드러운 그림자 효과 추가 */
+}
+
+/* 이미지 스타일 */
+.recommend-item img {
+  width: 100%; /* 이미지를 항목 너비에 맞게 조정 */
+  height: auto; /* 비율에 맞게 이미지 크기 자동 조정 */
+  border-radius: 8px; /* 이미지에 둥근 모서리 추가 */
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* 이미지에 부드러운 확대 및 투명도 효과 */
+}
+
+/* 이미지에 마우스를 올렸을 때 */
+.recommend-item:hover img {
+  transform: scale(1.05); /* 이미지 크기를 5% 확대 */
+  opacity: 0.9; /* 이미지 투명도를 90%로 줄여 약간 흐릿하게 보이도록 설정 */
+}

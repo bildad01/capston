@@ -1,0 +1,212 @@
+/* Header 스타일 */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd; /* 부드러운 회색 선 */
+  padding: 20px 30px;
+  background-color: #f8f9fa; /* 밝은 배경색 */
+}
+
+.h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  margin-right: 10px; /* 오른쪽 여백 추가 */
+  color: #333; /* 깊이 있는 색상 */
+  font-weight: 600; /* 진한 글씨 */
+}
+
+.back-button {
+  background-color: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #007bff; /* 파란색 텍스트 */
+  transition: color 0.3s ease;
+}
+
+.back-button:hover {
+  color: #0056b3; /* 호버 시 어두운 파란색 */
+}
+
+/* .detail-container 스타일 */
+.detail-container {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 80px; /* 간격 줄이기 */
+  padding-top: 40px;
+}
+
+/* .image-container 스타일 */
+.image-container {
+  flex: 1;
+  max-width: 350px;
+  border-radius: 8px; /* 둥근 모서리 */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 섬세한 그림자 */
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover; /* 이미지 크기 비율에 맞게 채우기 */
+}
+
+/* .info-container 스타일 */
+.info-container {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 20px;
+}
+
+/* .info-row 스타일 */
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.info-row strong {
+  flex-basis: 20%;
+  color: #333; /* 강조된 텍스트 */
+  font-weight: 500;
+}
+
+.info-row span, .info-row a {
+  flex-basis: 80%;
+  color: #555;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.info-row a {
+  text-decoration: none;
+  color: #007bff; /* 링크 파란색 */
+}
+
+.info-row a:hover {
+  text-decoration: underline;
+}
+
+/* 버튼 컨테이너 */
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* 팀원 구하기 버튼 */
+.contest-button, .copy-link-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 16px;
+  border-radius: 25px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+}
+
+.contest-button:hover, .copy-link-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px); /* 살짝 떠오르는 효과 */
+}
+
+.contest-button:active, .copy-link-button:active {
+  transform: translateY(1px); /* 클릭 시 눌리는 효과 */
+}
+
+/* D-Day 스타일 */
+.dday-normal {
+  color: #28a745; /* 녹색 */
+  font-weight: bold;
+}
+
+.dday-warning {
+  color: #e74c3c; /* 빨간색 */
+  font-weight: bold;
+}
+
+.dday-past {
+  color: #7f8c8d; /* 회색 */
+  font-weight: bold;
+}
+
+/* 필터 및 정렬 스타일 */
+.sort-filter {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 20px 0;
+}
+
+select {
+  padding: 8px 15px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  cursor: pointer;
+  background-color: #f8f9fa; /* 밝은 배경색 */
+}
+
+select:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+/* 추천 공모전 스타일 */
+.recommended-contests {
+  margin-top: 40px;
+}
+
+.recommended-list {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+}
+
+.recommended-item {
+  min-width: 160px;
+  text-align: center;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.recommended-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* 카드 효과 */
+}
+
+.description-container strong {
+  font-size: 1.6rem; /* 글자 크기 키우기 */
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.description-container {
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 20px 0;
+  margin-top: 2rem;
+  text-align: center;
+  background-color: #fafafa;
+}
+
+.description {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #777;
+  font-size: 1rem;
+}
