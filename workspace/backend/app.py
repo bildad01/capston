@@ -12,8 +12,8 @@ import requests
 app = Flask(__name__)
 CORS(app, supports_credentials=True)
 
-app.config["MONGO_URI"] = "mongodb+srv://alswl3:cgwu3fo7eHzEmcf8@minjik.sotgr.mongodb.net/capston?retryWrites=true&w=majority"
-app.secret_key = "abcdefHIjklma"
+app.config["MONGO_URI"] = "['몽고디비 주소']"
+app.secret_key = "['몽고디비 비번']"
 mongo = PyMongo(app)
 
 
